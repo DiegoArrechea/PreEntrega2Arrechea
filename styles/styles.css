@@ -4,6 +4,9 @@ body {
 
 .logo {
   max-width: 80%;
+  height: 60px;
+  scale: 1.3;
+  margin-left: 20px;
 }
 
 footer {
@@ -50,11 +53,7 @@ h2 {
   text-align: center;
 }
 
-.producto-imagen-front{
-  width: 400px;
-}
-
-.producto-imagen-back{
+.producto-imagen {
   width: 400px;
 }
 
@@ -66,15 +65,15 @@ h2 {
   margin-bottom: 50px;
   font-size: 2.5rem;
   text-align: center;
-  color: #66999B;
+  color: #66999b;
 }
 
 details {
-  background-color: #66999B;
+  background-color: #66999b;
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 12px;
-  border: 1px solid #496A81;
+  border: 1px solid #496a81;
   color: black;
   position: relative;
 }
@@ -89,12 +88,12 @@ details p {
   padding: 1rem;
   margin: 0 1rem 1rem 1rem;
   background: #f6f8fa;
-  border-left: 2px solid #66999B;
+  border-left: 2px solid #66999b;
 }
 
 details:hover,
 details[open] {
-  box-shadow: 5px 5px 15px #496A81;
+  box-shadow: 5px 5px 15px #496a81;
 }
 
 details[open] {
@@ -137,37 +136,6 @@ tbody {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.logo {
-  height: 60px;
-  scale: 1.3;
-  margin-left: 20px;
-}
-
 .navbar-nav .nav-link {
   margin-right: 15px;
 }/*# sourceMappingURL=styles.css.map */
-
-
-.producto--imagenes {
-  position: relative;
-  display: inline-block;
-}
-
-.producto-imagen-back {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.producto--imagenes:hover .producto-imagen-back {
-  display: block;
-}
-
-.bienvenida-imagen{
-  transition: transform 0.3s ease;
-}
-
-.bienvenida-imagen:hover{
-  transform: scale(1.05);
-}
