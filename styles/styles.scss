@@ -1,16 +1,16 @@
-// Mixin
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 // Variables
 $main-font: "Manrope", sans-serif;
 $main-color: #d9e8dc;
-$accent-color: #66999b;
+$accent-color: #66999B;
 $table-bg-color: rgba(0, 0, 0, 0.05);
 $nav-link-margin: 15px;
+
+// Mixin
+@mixin hover-display($property, $value) {
+  &:hover {
+    #{$property}: $value;
+  }
+}
 
 body {
   font-family: $main-font;
@@ -35,6 +35,9 @@ footer {
 .bienvenida-imagen {
   width: 100%;
   margin-top: 20px;
+  transition: transform 0.3s ease;
+
+  @include hover-display("transform", scale(1.05));
 }
 
 .bienvenida-mensaje {
@@ -65,21 +68,41 @@ h2 {
   display: grid;
   grid-template-rows: repeat(2, 0.13fr);
   text-align: center;
+
+  &--imagenes {
+    position: relative;
+    display: inline-block;
+
+    .producto-imagen-back {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
 }
 
-.producto-imagen {
+.producto--imagenes:hover .producto-imagen-back {
+  display: block;
+}
+
+.producto-imagen-front {
+  width: 400px;
+}
+
+.producto-imagen-back {
   width: 400px;
 }
 
 .preguntas {
   padding: 2rem;
-}
 
-.preguntas h2 {
-  margin-bottom: 50px;
-  font-size: 2.5rem;
-  text-align: center;
-  color: $accent-color;
+  h2 {
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: $accent-color;
+  }
 }
 
 details {
@@ -87,35 +110,35 @@ details {
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 12px;
-  border: 1px solid #496a81;
+  border: 1px solid #496A81;
   color: black;
   position: relative;
-}
 
-details summary {
-  font-size: 20px;
-  padding: 1rem;
-  list-style: none;
-}
+  summary {
+    font-size: 20px;
+    padding: 1rem;
+    list-style: none;
+  }
 
-details p {
-  padding: 1rem;
-  margin: 0 1rem 1rem 1rem;
-  background: #f6f8fa;
-  border-left: 2px solid $accent-color;
-}
+  p {
+    padding: 1rem;
+    margin: 0 1rem 1rem 1rem;
+    background: #f6f8fa;
+    border-left: 2px solid $accent-color;
+  }
 
-details:hover,
-details[open] {
-  box-shadow: 5px 5px 15px #496a81;
-}
+  &:hover,
+  &[open] {
+    box-shadow: 5px 5px 15px #496A81;
+  }
 
-details[open] {
-  background: #ffffff;
-}
+  &[open] {
+    background: #ffffff;
+  }
 
-details[open] summary {
-  font-weight: 600;
+  &[open] summary {
+    font-weight: 600;
+  }
 }
 
 .section-talles {
@@ -127,30 +150,25 @@ details[open] summary {
   line-height: 22px;
   width: 450px;
   border: 1px solid;
+
+  th {
+    background-color: $table-bg-color;
+    font-size: 20px;
+    text-align: left;
+    padding: 8px;
+  }
+
+  td {
+    font-size: 16px;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: $table-bg-color;
+  }
 }
 
-tbody {
-  box-sizing: inherit;
-}
-
-.table th {
-  background-color: $table-bg-color;
-  font-size: 20px;
-  text-align: left;
-  padding: 8px;
-}
-
-.table td {
-  font-size: 16px;
-  text-align: left;
-  padding: 8px;
-}
-
-.table tr:nth-child(even) {
-  background-color: $table-bg-color;
-}
-
-// Anidaciones (Nesting)
 .navbar-nav {
   .nav-link {
     margin-right: $nav-link-margin;
